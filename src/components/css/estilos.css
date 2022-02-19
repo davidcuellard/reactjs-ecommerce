@@ -1,0 +1,34 @@
+body {
+  background-color: #c5c5c5; }
+
+.Nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
+  .Nav ul {
+    list-style-type: none;
+    margin: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 10px; }
+  .Nav li {
+    float: left;
+    border-right: 1px solid #bbb; }
+  .Nav li:last-child {
+    border-right: none; }
+  .Nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; }
+  .Nav li a:hover:not(.active) {
+    background-color: #690000; }
+  .Nav .active {
+    background-color: #04AA6D; }
+  .Nav .cartLi {
+    float: right; }
