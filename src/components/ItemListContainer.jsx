@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import getData from './data/data'
+import getData from '../data/data'
 import ItemCount from './ItemCount'
 import ItemList from './ItemList'
 
