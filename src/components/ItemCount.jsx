@@ -22,7 +22,8 @@ function ItemCount(props){
         <button disabled = {count===0} onClick = { countLess } > - </button>
         <label>{ count }</label>
         <button disabled = {count===props.stock} onClick = { countPlus } > + </button>
-        <button onClick = { () => props.onAdd(count) } > Agregar </button>
+        <button disabled = {count===0} onClick = { () => props.onAdd(count) } > Agregar </button>
+        <label> Items in stock: { props.stock }</label>
     </div>
   )
 
