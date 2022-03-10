@@ -9,6 +9,7 @@ body{
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-bottom: 0px;
 
     .logo{
         height: 200px;
@@ -47,13 +48,55 @@ body{
     li a:hover:not(.active) {
         background-color: rgb(105, 0, 0);
     }
-    
-    .active {
-        background-color: #04AA6D;
-    }
 
     .cartLi{
         float: right;
+    }
+
+    .dropdown {
+        float: left;
+        overflow: hidden;
+        border-right:1px solid #bbb;
+      }
+      
+    .dropdown .dropbtn {
+        font-size: 16px;  
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        margin: 0;
+    }
+      
+    .navbar a:hover, .dropdown:hover .dropbtn {
+        background-color: rgb(105, 0, 0);
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+      
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+      
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+      
+    .dropdown:hover .dropdown-content {
+        display: block;
     }
 }
 
@@ -62,6 +105,8 @@ body{
     background-color: white;
     margin-left: 100px;
     margin-right: 100px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     height: 100%;
     border-radius: 10px;
     box-shadow: 0px 10px 10px -6px rgb(172, 172, 172);
@@ -88,5 +133,26 @@ body{
 
         }
     }
-
 }
+
+.itemDetail{
+    display: flex;
+    flex-direction: row;
+    padding-left: 100px;
+    padding-right: 100px;
+
+    .itemImg{
+        margin: 0px 40px 40px 40px;
+        width: 300px;
+    }
+
+    .info{
+        display: flex;
+        flex-direction: column;
+    }
+
+    label{
+        padding-bottom: 10px;
+    }
+}
+

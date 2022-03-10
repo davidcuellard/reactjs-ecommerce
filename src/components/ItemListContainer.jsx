@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import getData from '../data/data'
 import ItemCount from './ItemCount'
 import ItemList from './ItemList'
@@ -9,18 +10,29 @@ function ItemListContainer(props) {
   } */
     const [products , setProducts] = useState([])
     const [loading, setLoading] = useState(true)
+    const { categoriaId } = useParams()
+        
     
     useEffect( () => {
-        getData
-        .then((res) => 
-            setProducts(res)
-        )
-        .catch(err => console.log(err))
-        .finally(()=> setLoading(false))
-    }, [])
 
-    console.log(products)
-    
+        if (categoriaId) {
+            getData
+            .then((res) => 
+                setProducts(res.filter( products => products.category === categoriaId ))
+            )
+            .catch(err => console.log(err))
+            .finally(()=> setLoading(false))
+        }else{
+            getData
+            .then((res) => 
+                setProducts(res)
+            )
+            .catch(err => console.log(err))
+            .finally(()=> setLoading(false))
+        }
+    }, [categoriaId])
+
+    //console.log(products)
 
     return (
     <div className='itemContainer'>

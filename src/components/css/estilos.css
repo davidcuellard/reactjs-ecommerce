@@ -5,7 +5,8 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  margin-bottom: 0px; }
   .Nav .logo {
     height: 200px;
     width: 200px; }
@@ -31,15 +32,47 @@ body {
     text-decoration: none; }
   .Nav li a:hover:not(.active) {
     background-color: #690000; }
-  .Nav .active {
-    background-color: #04AA6D; }
   .Nav .cartLi {
     float: right; }
+  .Nav .dropdown {
+    float: left;
+    overflow: hidden;
+    border-right: 1px solid #bbb; }
+  .Nav .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    margin: 0; }
+  .Nav .navbar a:hover, .Nav .dropdown:hover .dropbtn {
+    background-color: #690000; }
+  .Nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1; }
+  .Nav .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left; }
+  .Nav .dropdown-content a:hover {
+    background-color: #ddd; }
+  .Nav .dropdown:hover .dropdown-content {
+    display: block; }
 
 .itemContainer {
   background-color: white;
   margin-left: 100px;
   margin-right: 100px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   height: 100%;
   border-radius: 10px;
   box-shadow: 0px 10px 10px -6px #acacac; }
@@ -60,3 +93,17 @@ body {
     .itemList .item .itemImg {
       width: 200px;
       margin: 10px; }
+
+.itemDetail {
+  display: flex;
+  flex-direction: row;
+  padding-left: 100px;
+  padding-right: 100px; }
+  .itemDetail .itemImg {
+    margin: 0px 40px 40px 40px;
+    width: 300px; }
+  .itemDetail .info {
+    display: flex;
+    flex-direction: column; }
+  .itemDetail label {
+    padding-bottom: 10px; }

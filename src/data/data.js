@@ -1,10 +1,11 @@
 export const products = [
-    {id: 1, name: "Producto 1", price: "100", stock: "11", img: "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"},
-    {id: 2, name: "Producto 2", price: "200", stock: "12", img: "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"},
-    {id: 3, name: "Producto 3", price: "300", stock: "13", img: "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"},
-    {id: 4, name: "Producto 4", price: "400", stock: "14", img: "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"},
-    {id: 5, name: "Producto 5", price: "500", stock: "15", img: "https://i.blogs.es/4f0662/consejos-foto-movil-01/840_560.jpg"},
-]
+    {id: '1', name: "Camiseta Soda Estereo", category: "camisetas" , price: "100", stock: "11", img: "https://i.ibb.co/dJQT723/camiseta1.jpg", det :"Camiseta manga corta básica Regular Size. Estampado en serigrafía sin tacto. 95% algodón 5% poliéster. Hecho en Colombia"},
+    {id: '2', name: "Camiseta Foo Fighters", category: "camisetas" , price: "100", stock: "12", img: "https://i.ibb.co/gFvzrHr/camiseta2.jpg", det :"Camiseta manga corta básica Regular Size. Estampado en serigrafía sin tacto. 95% algodón 5% poliéster. Hecho en Colombia"},
+    {id: '3', name: "Sweater Soda Stereo", category: "sweaters" , price: "200", stock: "13", img: "https://i.ibb.co/H2ww38x/sweater1.jpg", det :"Sweater semioversize unisex. Estampado en serigrafía sin tacto. 90% algodón 10% poliester. Hecho en Colombia"},
+    {id: '4', name: "Sweater Ungly Osos", category: "sweaters" , price: "200", stock: "14", img: "https://i.ibb.co/rtP5sXC/sweater2.jpg", det :"Sweater semioversize unisex. Estampado en serigrafía sin tacto. 90% algodón 10% poliester. Hecho en Colombia"},
+    {id: '5', name: "Gorra Rock", category: "gorras" , price: "200", stock: "15", img: "https://i.ibb.co/QkKfLHQ/gorra1.jpg", det :"Gorra en drill, bordado vintage rockgotá, correa ajustable en la parte trasera. Hecho en Colombia"},
+] 
+
   
 const getData = new Promise((resolve, reject)=>{
     if (true) {

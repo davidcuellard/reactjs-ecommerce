@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Item(props) {
     return (
@@ -6,8 +7,7 @@ function Item(props) {
         <label> { props.name } </label>
         <img src= {props.img} className = 'itemImg' />
         <label> $ {props.price} </label>
-        <button> Más detalles </button>
-        <label> Stock: {props.stock} </label>
+        <Link to={`/detalle/${props.id}`}>  <button> Más detalles </button></Link>
     </>
   )
 }
