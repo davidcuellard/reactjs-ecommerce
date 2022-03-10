@@ -18,8 +18,6 @@ function ItemDetailContainer() {
         .finally(()=> setLoading(false))
     }, [])
 
-    console.log(product)
-
     return (
     <div className='itemContainer'>
         <h2> Detalle </h2>

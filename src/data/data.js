@@ -11,7 +11,7 @@ const getData = new Promise((resolve, reject)=>{
     if (true) {
         setTimeout(() => {
             resolve(products)        
-        }, 2000);
+        }, 3000);
     }else{
         reject('Error')
     }

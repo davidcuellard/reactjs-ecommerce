@@ -11,9 +11,9 @@ function NavBar() {
         <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/">Nosotros</Link></li>
-            <div class="dropdown">
-                <button class="dropbtn">Categorías</button>
-                <div class="dropdown-content">
+            <div className="dropdown">
+                <button className="dropbtn">Categorías</button>
+                <div className="dropdown-content">
                     <Link to="categoria/camisetas">Camisetas</Link>
                     <Link to="categoria/sweaters">Sweaters</Link>
                     <Link to="categoria/gorras">Gorras</Link>
