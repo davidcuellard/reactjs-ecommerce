@@ -1,4 +1,3 @@
-# David Cuellar [Perfil Linkedin](https://www.linkedin.com/in/davidcuellard)
 # Proyecto React JS de Ecommerce
 Proyecto tipo Ecommerce creado en ReactJS. 
 
