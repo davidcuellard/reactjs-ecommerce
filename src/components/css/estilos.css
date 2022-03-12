@@ -93,6 +93,17 @@ body {
     .itemList .item .itemImg {
       width: 200px;
       margin: 10px; }
+  .itemList button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ddd;
+    font-size: medium;
+    margin: 10px; }
+  .itemList button:hover {
+    background-color: #690000;
+    color: white;
+    cursor: pointer; }
 
 .itemDetail {
   display: flex;
@@ -107,3 +118,14 @@ body {
     flex-direction: column; }
   .itemDetail label {
     padding-bottom: 10px; }
+  .itemDetail button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ddd;
+    font-size: medium;
+    margin: 10px; }
+  .itemDetail button:hover {
+    background-color: #690000;
+    color: white;
+    cursor: pointer; }

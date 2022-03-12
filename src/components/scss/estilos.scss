@@ -133,6 +133,20 @@ body{
 
         }
     }
+    
+    button{
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        background-color: #ddd;
+        font-size: medium;
+        margin: 10px;
+    }
+    button:hover{
+        background-color: rgb(105, 0, 0);
+        color: white;
+        cursor: pointer;
+    }
 }
 
 .itemDetail{
@@ -154,5 +168,21 @@ body{
     label{
         padding-bottom: 10px;
     }
+
+    
+    button{
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        background-color: #ddd;
+        font-size: medium;
+        margin: 10px;
+    }
+    button:hover{
+        background-color: rgb(105, 0, 0);
+        color: white;
+        cursor: pointer;
+    }
+    
 }
 
