@@ -2,9 +2,9 @@
 # Proyecto React JS de Ecommerce
 Proyecto tipo Ecommerce creado en ReactJS. 
 
-# Update FireBase
+# Gif
 
-![image](https://github.com/davidcuellard/reactjs-ecommerce/tree/main/src/media/screen.gif)    
+![image](https://github.com/davidcuellard/reactjs-ecommerce/blob/main/src/media/screen.gif?raw=true)    
 
 # Getting Started with Create React App
 
