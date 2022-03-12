@@ -1,10 +1,10 @@
 # David Cuellar [Perfil Linkedin](https://www.linkedin.com/in/davidcuellard)
 # Proyecto React JS de Ecommerce
-ShopCard es una web que permite a las marcas/emprendimientos de ropa tener su propia web con los articulos que tengan en stock, esto solamente subiendo su catalogo, pudiendo tambien eliminar, modificar y agregar articulos, todo desde el panel de control de usuario!!
+Proyecto tipo Ecommerce creado en ReactJS. 
 
 # Update FireBase
 
-![image](https://github.com/EfimeroM/ProyectoFinalReactJs/blob/main/src/media/ShopCard.gif)    
+![image](https://github.com/davidcuellard/reactjs-ecommerce/tree/main/src/media/screen.gif)    
 
 # Getting Started with Create React App
 
