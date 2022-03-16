@@ -5,7 +5,7 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-const title = 'Items'
+const title = 'Productos'
 
 function App() {
     return (
