@@ -113,6 +113,20 @@ body{
     h2{
         padding-top: 20px;
     }
+
+    button{
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        background-color: #ddd;
+        font-size: medium;
+        margin: 10px;
+    }
+    button:hover{
+        background-color: rgb(105, 0, 0);
+        color: white;
+        cursor: pointer;
+    }
 }
 
 .itemList{
@@ -132,20 +146,6 @@ body{
             margin: 10px;
 
         }
-    }
-    
-    button{
-        padding: 10px;
-        border-radius: 10px;
-        border: none;
-        background-color: #ddd;
-        font-size: medium;
-        margin: 10px;
-    }
-    button:hover{
-        background-color: rgb(105, 0, 0);
-        color: white;
-        cursor: pointer;
     }
 }
 
@@ -168,8 +168,38 @@ body{
     label{
         padding-bottom: 10px;
     }
-
     
+}
+
+//card container
+.cartCard{
+    display: flex;
+    flex-direction: row;
+    padding-left: 100px;
+    padding-right: 100px;
+
+    .itemImgCart{
+        margin: 0px 40px 40px 40px;
+        object-fit: cover;
+        height: 150px;
+        width: 150px;
+        border-radius: 10px;
+    }
+
+    .details{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        margin-bottom: 50px;
+    }
+}
+
+.nothing{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+
     button{
         padding: 10px;
         border-radius: 10px;
@@ -183,6 +213,4 @@ body{
         color: white;
         cursor: pointer;
     }
-    
 }
-

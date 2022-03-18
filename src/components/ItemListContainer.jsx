@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom'
 import getData from '../data/data'
 import ItemList from './ItemList'
 
-function ItemListContainer(props) {
+function ItemListContainer() {
     const [products , setProducts] = useState([])
     const [loading, setLoading] = useState(true)
+    const [category, setCategory] = useState(true)
     const { categoriaId } = useParams()
         
     
@@ -18,6 +19,7 @@ function ItemListContainer(props) {
             )
             .catch(err => console.log(err))
             .finally(()=> setLoading(false))
+            setCategory(false)
         }else{
             getData
             .then((res) => 
@@ -30,9 +32,8 @@ function ItemListContainer(props) {
 
     return (
     <div className='itemContainer'>
-        <h2> {props.title} </h2>
-
-        { loading ? <h1> Cargando...</h1> : <ItemList products = { products }/> }
+        { category ? <h2> Productos </h2> : <h2> { categoriaId } </h2> }
+        { loading ? <h2> Cargando...</h2> : <ItemList products = { products }/> }
 
     </div>
     )
