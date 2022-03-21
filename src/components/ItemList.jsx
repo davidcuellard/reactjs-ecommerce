@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import Item from './Item'
 
-const ItemList = React.memo(
+const ItemList = memo(
     ( {products} ) => {
 
         return (
@@ -14,7 +14,7 @@ const ItemList = React.memo(
         </div>
         )
     }
-, (prevProps,nextProps) => prevProps == nextProps
+, (prevProps,nextProps) => prevProps.products.length == nextProps.products.length
 )
 
 export default ItemList

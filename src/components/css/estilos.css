@@ -32,8 +32,13 @@ body {
     text-decoration: none; }
   .Nav li a:hover:not(.active) {
     background-color: #690000; }
-  .Nav .cartLi {
-    float: right; }
+  .Nav .cartDiv {
+    display: flex;
+    flex-direction: column; }
+    .Nav .cartDiv h3 {
+      margin-bottom: 0px; }
+    .Nav .cartDiv .cartLi {
+      float: right; }
   .Nav .dropdown {
     float: left;
     overflow: hidden;

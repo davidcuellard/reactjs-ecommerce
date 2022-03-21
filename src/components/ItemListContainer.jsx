@@ -27,6 +27,7 @@ function ItemListContainer() {
             )
             .catch(err => console.log(err))
             .finally(()=> setLoading(false))
+            setCategory(true)
         }
     }, [categoriaId])
 
