@@ -1,14 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../context/CartContext'
 
 function Cart() {
-    const { cartList, vaciarCart, removeItem, cartLength, totalPriceFx, totalPrice } = useCartContext()
-
-    setTimeout(() => {
-        totalPriceFx()      
-    }, 10);
-    
+    const { cartList, vaciarCart, removeItem, cartLength, totalPrice } = useCartContext() 
     
     return (
         <div>
@@ -31,7 +26,7 @@ function Cart() {
                                 </div>
                             </div>
                             )}
-                            <h3>Total: {totalPrice} USD</h3>
+                            <h3>Total: { totalPrice } USD</h3>
                             <button onClick={ vaciarCart }>Vaciar carrito</button>
                         </>
             }

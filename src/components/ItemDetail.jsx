@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../context/CartContext'
 import ItemCount from './ItemCount'
@@ -6,12 +6,11 @@ import ItemCount from './ItemCount'
 function ItemDetail( {product} ) {
     const [option, setOption] = useState(true)
 
-    const { agregarCart, cartList, totalProducts} = useCartContext()
+    const { agregarCart } = useCartContext()
 
     function onAdd(cantidad) {
         setOption(false)
         agregarCart({ ...product, cantidad: cantidad })
-        
     }
 
     return (
@@ -23,7 +22,7 @@ function ItemDetail( {product} ) {
             <label> Precio: $ {product.price} </label>
             
             { option ? 
-                        <ItemCount stock = { Number(product.stock)} initial = {1} onAdd = { onAdd }/> : 
+                        <ItemCount id = { Number(product.id)} stock = { Number(product.stock)} initial = {0} onAdd = { onAdd }/> : 
                         <>
                         <Link to={`/`}>  <button> Seguir comprando </button></Link>
                         <Link to={`/cart`}>  <button> Terminar compra </button></Link>

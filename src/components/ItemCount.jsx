@@ -1,11 +1,22 @@
 import React from 'react'
 import { useState } from 'react'
+import { useCartContext } from '../context/CartContext'
 
 function ItemCount(props){
+
+    const { cartList } = useCartContext()    
     const [count, setCount] = useState(props.initial)
 
+    let stock = props.stock
+    let cartMapId = cartList.map(res => Number(res.id))
+    let position = cartMapId.indexOf(props.id)
+
+    if(cartMapId.some(elem => elem == props.id) === true){
+           stock = props.stock - cartList[position].cantidad
+    }
+
     const countPlus = () => {
-        if(count < props.stock){
+        if(count < stock){
             setCount(count+1)
         }
     }
@@ -21,7 +32,7 @@ function ItemCount(props){
             <div>
             <button disabled = {count===0} onClick = { countLess } > - </button>
             <label>{ count }</label>
-            <button disabled = {count===props.stock} onClick = { countPlus } > + </button>
+            <button disabled = {count===stock} onClick = { countPlus } > + </button>
             </div>
             <button disabled = {count===0} onClick = { () => props.onAdd(count) } > Agregar </button>
         </div>

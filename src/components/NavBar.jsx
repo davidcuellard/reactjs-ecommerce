@@ -2,12 +2,8 @@ import React from 'react'
 import CartWidget from './CartWidget'
 import logoLand from '../media/logoLand.png'
 import { Link } from 'react-router-dom'
-import { useCartContext } from '../context/CartContext'
-
 
 function NavBar() {
-
-    const { cartShow} = useCartContext()
 
     return (
     <div className='Nav'>

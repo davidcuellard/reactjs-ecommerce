@@ -14,34 +14,45 @@ const CartContextProvider = memo(
         const [cartShow, setCartShow] = useState(false)
 
 
-        let isInCart = cartList.map(res => res.id)
+        let cartMapId = cartList.map(res => res.id)
 
         const agregarCart = (prod) => {
+
+            setCartLength(false)
+            setCartShow(true)
+
+            const isInCart = () => {
+                return cartMapId.some(elem => elem === prod.id)
+            }
             
-            if(isInCart.some(elem => elem === prod.id) == false){
-                setCartList( [ ...cartList, prod ] )
-                setCartLength(false)
-                setCartShow(true)
+            if( isInCart() === false ){
+                setCartList( [ ...cartList, prod ] )    
             }else{
                 alert("Ya tiene este producto agregado en el carrito")
+                /* let position = cartMapId.indexOf(prod.id)
+                cartList[position].cantidad = cartList[position].cantidad + prod.cantidad */
             }
+
+            totalProducts()
         }
 
         const vaciarCart = () => {
             setCartList( [] )
             setCartLength(true)
             setCartShow(false)
+            totalProducts()
         } 
 
 
         const removeItem = (idx) => {
-            let position = isInCart.indexOf(idx)    
+            let position = cartMapId.indexOf(idx)    
             cartList.splice(position, 1);
             setCartList( [...cartList] )
             if (cartList.length === 0){
                 setCartLength(true)
                 setCartShow(false)
             }
+            totalProducts()
             
         }
 
