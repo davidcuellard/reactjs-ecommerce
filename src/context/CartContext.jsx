@@ -17,8 +17,8 @@ const CartContextProvider = memo(
         let isInCart = cartList.map(res => res.id)
 
         const agregarCart = (prod) => {
-                    
-            if(isInCart.indexOf(prod.id) === -1){
+            
+            if(isInCart.some(elem => elem === prod.id) == false){
                 setCartList( [ ...cartList, prod ] )
                 setCartLength(false)
                 setCartShow(true)
