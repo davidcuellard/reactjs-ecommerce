@@ -8,7 +8,7 @@ function ItemCount(props){
     const [count, setCount] = useState(props.initial)
 
     let stock = props.stock
-    let cartMapId = cartList.map(res => Number(res.id))
+    let cartMapId = cartList.map(res => res.id)
     let position = cartMapId.indexOf(props.id)
 
     if(cartMapId.some(elem => elem == props.id) === true){

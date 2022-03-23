@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom'
 import { useCartContext } from '../context/CartContext'
 
 function Cart() {
-    const { cartList, vaciarCart, removeItem, cartLength, totalPrice } = useCartContext() 
+    const { cartList, vaciarCart, removeItem, cartLength, totalPrice, totalPriceFx } = useCartContext() 
+    //Se utiliza el setTimeOut para no renderizar dos componentes al tiempo
+    setTimeout(() => {
+        totalPriceFx() 
+    }, 10);
     
     return (
         <div>

@@ -1,35 +1,40 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import getData from '../data/data'
 import ItemList from './ItemList'
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
+
 
 function ItemListContainer() {
     const [products , setProducts] = useState([])
     const [loading, setLoading] = useState(true)
     const [category, setCategory] = useState(true)
     const { categoriaId } = useParams()
-        
     
     useEffect( () => {
+        const db = getFirestore()
+        const queryDb = collection(db, 'productos')
 
         if (categoriaId) {
-            getData
-            .then((res) => 
-                setProducts(res.filter( products => products.category === categoriaId ))
-            )
-            .catch(err => console.log(err))
-            .finally(()=> setLoading(false))
-            setCategory(false)
+            const queryFilter = query(
+                            collection(db, 'productos'), where("category", "==" , categoriaId)
+                            )
+            getDocs(queryFilter)
+                        .then((res) => 
+                        setProducts(res.docs.map((doc) => ( { id: doc.id, ...doc.data() } )))
+                        )
+                        .catch(err => console.log(err))
+                        .finally(()=> setLoading(false))
+                        setCategory(false)
         }else{
-            getData
-            .then((res) => 
-                setProducts(res)
-            )
-            .catch(err => console.log(err))
-            .finally(()=> setLoading(false))
-            setCategory(true)
+            getDocs(queryDb)
+                        .then((res) => 
+                        setProducts(res.docs.map((doc) => ( { id: doc.id, ...doc.data() } )))
+                        )
+                        .catch(err => console.log(err))
+                        .finally(()=> setLoading(false))
+                        setCategory(true)
         }
-    }, [categoriaId])
+    },[categoriaId])
 
     return (
     <div className='itemContainer'>

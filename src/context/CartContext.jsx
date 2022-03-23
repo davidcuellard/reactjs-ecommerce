@@ -28,9 +28,8 @@ const CartContextProvider = memo(
             if( isInCart() === false ){
                 setCartList( [ ...cartList, prod ] )    
             }else{
-                alert("Ya tiene este producto agregado en el carrito")
-                /* let position = cartMapId.indexOf(prod.id)
-                cartList[position].cantidad = cartList[position].cantidad + prod.cantidad */
+                let position = cartMapId.indexOf(prod.id)
+                cartList[position].cantidad = cartList[position].cantidad + prod.cantidad
             }
 
             totalProducts()
@@ -66,7 +65,7 @@ const CartContextProvider = memo(
         }
 
         const totalPriceFx = () => {
-            let totalPrices = cartList.map(res => Number(res.price))
+            let totalPrices = cartList.map(res => res.price)
             let totalProds = cartList.map(res => res.cantidad)
 
             const mulArrays = (arr1, arr2) => {
@@ -86,7 +85,7 @@ const CartContextProvider = memo(
         return (
             <div className="itemContainer">
             <CartContext.Provider value = {{
-                cartList, agregarCart, vaciarCart, removeItem, cartLength, total, totalProducts, totalPriceFx, totalPrice, cartShow
+                cartList, agregarCart, vaciarCart, removeItem, cartLength, totalProducts, total, totalPriceFx, totalPrice, cartShow
             }}>
                 {children}
             </CartContext.Provider>

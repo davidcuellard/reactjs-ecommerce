@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import getData from '../data/data'
 import ItemDetail from './ItemDetail'
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 
 function ItemDetailContainer() {
 
@@ -10,12 +10,14 @@ function ItemDetailContainer() {
     const { detalleId } = useParams() 
 
     useEffect( () => {
-        getData
-        .then((res) => 
-                setProduct(res.find( products => products.id === detalleId ))
-        )
-        .catch(err => console.log(err))
-        .finally(()=> setLoading(false))
+        const db = getFirestore()
+        const queryDbProduct = doc(db, 'productos', detalleId)
+
+        getDoc(queryDbProduct).then((res) => {
+                            setProduct({ id: res.id , ...res.data() })  
+                    })
+                    .catch(err => console.log(err))
+                    .finally(()=> setLoading(false))
     }, [])
 
     return (

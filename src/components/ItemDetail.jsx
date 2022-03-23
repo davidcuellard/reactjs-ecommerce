@@ -15,14 +15,14 @@ function ItemDetail( {product} ) {
 
     return (
     <div className='itemDetail'>
-        <img src= {product.img} className = 'itemImg' />
+        <img src= { product.img } className = 'itemImg' />
         <div className='info'>
             <h3> { product.name } </h3>
             <label> {product.det} </label>
             <label> Precio: $ {product.price} </label>
             
             { option ? 
-                        <ItemCount id = { Number(product.id)} stock = { Number(product.stock)} initial = {0} onAdd = { onAdd }/> : 
+                        <ItemCount id = { product.id} stock = { product.stock} initial = {0} onAdd = { onAdd }/> : 
                         <>
                         <Link to={`/`}>  <button> Seguir comprando </button></Link>
                         <Link to={`/cart`}>  <button> Terminar compra </button></Link>
