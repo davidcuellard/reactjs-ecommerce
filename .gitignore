@@ -25,4 +25,4 @@ yarn-error.log*
 #old files with good info
 /src/components/ItemDetailContainerOld.jsx
 /src/components/ItemListContainerOld.jsx
-/src/data/data.js
+/src/data
