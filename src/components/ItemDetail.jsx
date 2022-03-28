@@ -20,6 +20,7 @@ function ItemDetail( {product} ) {
             <h3> { product.name } </h3>
             <label> {product.det} </label>
             <label> Precio: $ {product.price} </label>
+            <label> Stock:  {product.stock} </label>
             
             { option ? 
                         <ItemCount id = { product.id} stock = { product.stock} initial = {0} onAdd = { onAdd }/> : 

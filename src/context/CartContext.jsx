@@ -92,7 +92,7 @@ const CartContextProvider = memo(
             </div>
             )
     }
-, (prevProps,nextProps) => prevProps.cartList.length == nextProps.cartList.length
+, (prevProps,nextProps) => prevProps.cartList.length === nextProps.cartList.length
 )
 
 export default CartContextProvider

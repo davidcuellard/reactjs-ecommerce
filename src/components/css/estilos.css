@@ -103,8 +103,6 @@ body {
     display: flex;
     flex-direction: column;
     margin: 20px;
-    box-shadow: 5px 10px 8px #888888;
-    border-radius: 10px;
     padding: 10px; }
     .itemList .item .itemImg {
       width: 200px;
@@ -117,30 +115,43 @@ body {
   padding-right: 100px; }
   .itemDetail .itemImg {
     margin: 0px 40px 40px 40px;
-    width: 300px; }
+    width: 300px;
+    border-radius: 5px; }
   .itemDetail .info {
     display: flex;
     flex-direction: column; }
   .itemDetail label {
     padding-bottom: 10px; }
 
-.cartCard {
+.cartContainer {
   display: flex;
-  flex-direction: row;
-  padding-left: 100px;
-  padding-right: 100px; }
-  .cartCard .itemImgCart {
-    margin: 0px 40px 40px 40px;
-    object-fit: cover;
-    height: 150px;
-    width: 150px;
-    border-radius: 10px; }
-  .cartCard .details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    margin-bottom: 50px; }
+  flex-direction: row; }
+  .cartContainer .cartLeft {
+    width: 50%; }
+    .cartContainer .cartLeft .cartCard {
+      display: flex;
+      flex-direction: row;
+      padding-left: 100px;
+      padding-right: 100px; }
+      .cartContainer .cartLeft .cartCard .itemImgCart {
+        margin: 0px 40px 40px 40px;
+        object-fit: cover;
+        height: 150px;
+        width: 150px;
+        border-radius: 10px; }
+      .cartContainer .cartLeft .cartCard .details {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        margin-bottom: 50px; }
+  .cartContainer .cartRight {
+    width: 50%; }
+    .cartContainer .cartRight form label {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      width: 70%; }
 
 .nothing {
   display: flex;
@@ -157,3 +168,7 @@ body {
     background-color: #690000;
     color: white;
     cursor: pointer; }
+
+.qrbinance {
+  width: 130px;
+  margin: 10px 130px; }

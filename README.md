@@ -29,3 +29,11 @@ Manage routes in web
 ### `npm run watch-css`
 
 Both manage the styles in the web
+
+### `npm install react-bootstrap bootstrap@5.1.3`
+
+Install bootstrap
+
+### `npm install firebase`
+
+Install firebase to manage products
