@@ -11,7 +11,7 @@ function ItemCount(props){
     let position = cartMapId.indexOf(props.id)
 
     if(cartMapId.some(elem => elem == props.id) === true){
-           stock = props.stock - cartList[position].cantidad
+           stock = props.stock - cartList[position].amount
     }
 
     const countPlus = () => {
