@@ -5,40 +5,31 @@ import { collection, getDocs, getFirestore, query, where } from "firebase/firest
 
 
 function ItemListContainer() {
-    const [products , setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [category, setCategory] = useState(true)
-    const { categoriaId } = useParams()
+    const [ products , setProducts] = useState([])
+    const [ loading, setLoading] = useState(true)
+    const [ category, setCategory] = useState(true)
+    const { categoryId } = useParams()
     
     useEffect( () => {
         const db = getFirestore()
-        const queryDb = collection(db, 'productos')
+        const queryDb = categoryId ? 
+                                    query(collection(db, 'productos'), where("category", "==" , categoryId)) 
+                                    : 
+                                    collection(db, 'productos')
+        getDocs(queryDb)
+                        .then((res) => 
+                        setProducts(res.docs.map((doc) => ( { id: doc.id, ...doc.data() } )))
+                        )
+                        .catch(err => console.log(err))
+                        .finally(()=> setLoading(false))
 
-        if (categoriaId) {
-            const queryFilter = query(
-                            collection(db, 'productos'), where("category", "==" , categoriaId)
-                            )
-            getDocs(queryFilter)
-                        .then((res) => 
-                        setProducts(res.docs.map((doc) => ( { id: doc.id, ...doc.data() } )))
-                        )
-                        .catch(err => console.log(err))
-                        .finally(()=> setLoading(false))
-                        setCategory(false)
-        }else{
-            getDocs(queryDb)
-                        .then((res) => 
-                        setProducts(res.docs.map((doc) => ( { id: doc.id, ...doc.data() } )))
-                        )
-                        .catch(err => console.log(err))
-                        .finally(()=> setLoading(false))
-                        setCategory(true)
-        }
-    },[categoriaId])
+        categoryId ? setCategory(false) : setCategory(true)
+        
+    },[categoryId])
 
     return (
     <div className='itemContainer'>
-        { category ? <h2> Productos </h2> : <h2> { categoriaId } </h2> }
+        { category ? <h2> Productos </h2> : <h2> { categoryId } </h2> }
         { loading ? <h2> Cargando...</h2> : <ItemList products = { products }/> }
 
     </div>

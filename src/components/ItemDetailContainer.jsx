@@ -7,11 +7,11 @@ function ItemDetailContainer() {
 
     const [product , setProduct] = useState({})
     const [loading, setLoading] = useState(true)
-    const { detalleId } = useParams() 
+    const { detailId } = useParams() 
 
     useEffect( () => {
         const db = getFirestore()
-        const queryDbProduct = doc(db, 'productos', detalleId)
+        const queryDbProduct = doc(db, 'productos', detailId)
 
         getDoc(queryDbProduct).then((res) => {
                             setProduct({ id: res.id , ...res.data() })  

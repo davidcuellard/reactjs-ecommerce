@@ -14,7 +14,7 @@ const ItemList = memo(
         </div>
         )
     }
-, (prevProps,nextProps) => prevProps.products.length == nextProps.products.length
+, (prevProps,nextProps) => prevProps.products == nextProps.products
 )
 
 export default ItemList

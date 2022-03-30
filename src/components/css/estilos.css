@@ -1,5 +1,5 @@
 body {
-  background-color: #f0f0f0; }
+  background-color: black; }
 
 .Nav {
   display: flex;
@@ -55,7 +55,7 @@ body {
     background-color: #690000; }
   .Nav .dropdown-content {
     display: none;
-    position: absolute;
+    position: fixed;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -152,6 +152,8 @@ body {
       flex-direction: column;
       margin: auto;
       width: 70%; }
+    .cartContainer .cartRight input {
+      border-color: #690000; }
 
 .nothing {
   display: flex;

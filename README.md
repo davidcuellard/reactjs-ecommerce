@@ -1,6 +1,8 @@
 # Proyecto React JS de Ecommerce
 Proyecto tipo Ecommerce creado en ReactJS. 
 
+Web: 
+
 # Gif
 
 ![image](https://github.com/davidcuellard/reactjs-ecommerce/blob/main/src/media/screen.gif?raw=true)    
@@ -32,7 +34,7 @@ Both manage the styles in the web
 
 ### `npm install react-bootstrap bootstrap@5.1.3`
 
-Install bootstrap
+Install bootstrap 5.1.3 to some styles features
 
 ### `npm install firebase`
 

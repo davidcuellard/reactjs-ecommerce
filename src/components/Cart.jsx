@@ -2,20 +2,24 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../context/CartContext'
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from 'firebase/firestore'
-import ModalFin from './ModalFin'
+import ModalFin from './Modals/ModalFin'
+import ModalData from './Modals/ModalData'
 
 function Cart() {
-    const { cartList, vaciarCart, removeItem, cartLength, totalPrice, totalPriceFx } = useCartContext() 
+    const { cartList, emptyCart, removeItem, cartLength, totalPrice, totalPriceFx } = useCartContext() 
     const [modalShow, setModalShow] = useState(false);
+    const [modalDataShow, setModalDataShow] = useState(false);
     const [uniqueCode, setUniqueCode] = useState('');
+    const [inputName, setInputName] = useState('')
+    const [inputPhone, setInputPhone] = useState('')
+    const [inputEmail, setInputEmail] = useState('')
 
     //Se utiliza el setTimeOut para no renderizar dos componentes al tiempo
     setTimeout(() => {
         totalPriceFx() 
     }, 10);
-    const [inputName, setInputName] = useState('')
-    const [inputPhone, setInputPhone] = useState('')
-    const [inputEmail, setInputEmail] = useState('')
+
+
 
     const buyerVals = async() => {
 
@@ -30,7 +34,7 @@ function Cart() {
         orden.items = cartList.map(res => {
                 const id = res.id
                 const name = res.name
-                const price = res.price * res.cantidad
+                const price = res.price * res.amount
                 return {id, name, price}
             })
 
@@ -45,27 +49,36 @@ function Cart() {
             .then(resp => setUniqueCode(resp.id))
             .catch(err => console.error(err))
 
-        const queryActualizarStock = await query(
-            collection(db, "productos"), where( documentId() , 'in' , cartList.map(it => it.id) )
-        )
+        const queryUpdateStock = await query( collection(db, "productos"), where( documentId() , 'in' , cartList.map(it => it.id) ))
 
         const bacth = writeBatch(db)
 
-        await getDocs(queryActualizarStock)
+        await getDocs(queryUpdateStock)
                 .then(resp => resp.docs.forEach(res => bacth.update(res.ref, {
-                    stock: res.data().stock - cartList.find(item => item.id === res.id).cantidad
+                    stock: res.data().stock - cartList.find(item => item.id === res.id).amount
                 })))
         bacth.commit()
 
         setModalShow(true)
     }
     
-    function checkout(){
+    const checkout = () => {
         setModalShow(false)
-        vaciarCart()
+        emptyCart()
     }
 
+    const checkoutData = () => {
+        setModalDataShow(false)
+    }
 
+    const formFull = () => {
+        if(inputName && inputPhone){
+            buyerVals()
+        }else{
+            
+            setModalDataShow(true)
+        }
+    }
 
     return (
         <div>
@@ -84,7 +97,7 @@ function Cart() {
                                 <div className='details'>
                                     <label> { product.name } </label>
                                     <label> Precio: {product.price} </label>
-                                    <label> Cantidad: {product.cantidad} </label>
+                                    <label> Cantidad: {product.amount} </label>
                                     <button onClick= {() => removeItem(product.id)} > 🗑️  </button>
                                 </div>
                             </div>
@@ -93,16 +106,20 @@ function Cart() {
                             <div className='cartRight'> 
                             <form>
                                 <label>
-                                    Nombre: <input type="text" name="name" value={inputName} onInput={e => setInputName(e.target.value)}/>
-                                    Teléfono: <input type="number" name="phone" value={inputPhone} onInput={e => setInputPhone(e.target.value)} />
-                                    Email: <input type="email" name="email" value={inputEmail} onInput={e => setInputEmail(e.target.value)} />
+                                    Nombre: <input type="text" name="name" value={ inputName } onInput={e => setInputName(e.target.value)}/>
+                                    Teléfono: <input type="number" name="phone" value={ inputPhone } onInput={e => setInputPhone(e.target.value)} />
+                                    Email: <input type="email" name="email" value={ inputEmail } onInput={e => setInputEmail(e.target.value)} />
                                 </label>
-                                </form>
-                                <h3>Total: { totalPrice } USD</h3>
-                                <button onClick={ buyerVals }>Terminar Comprar</button>
-                                <button onClick={ vaciarCart }>Vaciar carrito</button>
-                                    
-                                <ModalFin show={ modalShow } onHide={() => checkout() } code = {uniqueCode} />
+                            </form>
+
+                            <h3>Total: { totalPrice } USD</h3>
+
+                            <button onClick={ formFull }>Terminar Comprar</button>
+                            <button onClick={ emptyCart }>Vaciar carrito</button>
+
+                            <ModalData show={ modalDataShow } onHide={() => checkoutData() }/>
+
+                            <ModalFin show={ modalShow } onHide={() => checkout() } code = {uniqueCode} />
                                 
                             </div>
                         </div>

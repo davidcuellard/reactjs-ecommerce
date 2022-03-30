@@ -1,6 +1,8 @@
+$color_buttons: rgb(105, 0, 0);
+
 //Body
 body{
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(0, 0, 0);
 }
 
 // NavBar
@@ -46,7 +48,7 @@ body{
     }
     
     li a:hover:not(.active) {
-        background-color: rgb(105, 0, 0);
+        background-color: $color_buttons;
     }
 
     .cartDiv{
@@ -77,12 +79,12 @@ body{
     }
       
     .navbar a:hover, .dropdown:hover .dropbtn {
-        background-color: rgb(105, 0, 0);
+        background-color: $color_buttons;
     }
     
     .dropdown-content {
         display: none;
-        position: absolute;
+        position: fixed;
         background-color: #f9f9f9;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -130,7 +132,7 @@ body{
         margin: 10px;
     }
     button:hover{
-        background-color: rgb(105, 0, 0);
+        background-color: $color_buttons;
         color: white;
         cursor: pointer;
     }
@@ -214,6 +216,9 @@ body{
             margin: auto;
             width: 70%;
         }
+        input {
+            border-color: $color_buttons;
+        }
     }
     
 }
@@ -233,7 +238,7 @@ body{
         margin: 10px;
     }
     button:hover{
-        background-color: rgb(105, 0, 0);
+        background-color: $color_buttons;
         color: white;
         cursor: pointer;
     }

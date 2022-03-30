@@ -6,11 +6,11 @@ import ItemCount from './ItemCount'
 function ItemDetail( {product} ) {
     const [option, setOption] = useState(true)
 
-    const { agregarCart } = useCartContext()
+    const { addCart } = useCartContext()
 
-    function onAdd(cantidad) {
+    function onAdd(amount) {
         setOption(false)
-        agregarCart({ ...product, cantidad: cantidad })
+        addCart({ ...product, amount: amount })
     }
 
     return (

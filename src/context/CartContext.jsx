@@ -16,7 +16,7 @@ const CartContextProvider = memo(
 
         let cartMapId = cartList.map(res => res.id)
 
-        const agregarCart = (prod) => {
+        const addCart = (prod) => {
 
             setCartLength(false)
             setCartShow(true)
@@ -29,13 +29,13 @@ const CartContextProvider = memo(
                 setCartList( [ ...cartList, prod ] )    
             }else{
                 let position = cartMapId.indexOf(prod.id)
-                cartList[position].cantidad = cartList[position].cantidad + prod.cantidad
+                cartList[position].amount = cartList[position].amount + prod.amount
             }
 
             totalProducts()
         }
 
-        const vaciarCart = () => {
+        const emptyCart = () => {
             setCartList( [] )
             setCartLength(true)
             setCartShow(false)
@@ -56,7 +56,7 @@ const CartContextProvider = memo(
         }
 
         const totalProducts = () => {
-            let totalProds = cartList.map(res => res.cantidad)
+            let totalProds = cartList.map(res => res.amount)
             const initialValue = 0;
             const sumWithInitial = totalProds.reduce(
                                                     (previousValue, currentValue) => 
@@ -66,7 +66,7 @@ const CartContextProvider = memo(
 
         const totalPriceFx = () => {
             let totalPrices = cartList.map(res => res.price)
-            let totalProds = cartList.map(res => res.cantidad)
+            let totalProds = cartList.map(res => res.amount)
 
             const mulArrays = (arr1, arr2) => {
                 return arr1.map((e, index) => e * arr2[index]);
@@ -85,7 +85,7 @@ const CartContextProvider = memo(
         return (
             <div className="itemContainer">
             <CartContext.Provider value = {{
-                cartList, agregarCart, vaciarCart, removeItem, cartLength, totalProducts, total, totalPriceFx, totalPrice, cartShow
+                cartList, addCart, emptyCart, removeItem, cartLength, totalProducts, total, totalPriceFx, totalPrice, cartShow
             }}>
                 {children}
             </CartContext.Provider>
