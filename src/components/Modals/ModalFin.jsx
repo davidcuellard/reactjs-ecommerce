@@ -12,7 +12,7 @@ function ModalFin(props) {
             centered
         >
             <Modal.Body>
-            <h4>Gracias por comprar con nosotros</h4>
+            <h4> <b>{ props.name }</b> Gracias por comprar con nosotros</h4>
             <p>Tu código de compra es: <b> { props.code } </b> </p>
             <p>Envía tu pago en USDT a la siguiente cuenta de Binance vía ERC20</p>
             <p>0x0b333a00115322e1dadf89b073dd0ec4ae657b1e</p>

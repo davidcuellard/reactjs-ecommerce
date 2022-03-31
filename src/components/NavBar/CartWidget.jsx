@@ -5,12 +5,7 @@ import { useCartContext } from '../../context/CartContext'
 function CartWidget() {
 
     const { total , totalProducts, cartShow} = useCartContext()
-    
-    //Se utiliza el setTimeOut para no renderizar dos componentes al tiempo
-    setTimeout(() => {
-        totalProducts()      
-    }, 10);
- 
+
     return (
         <div className='cartDiv'>
             {cartShow ? 

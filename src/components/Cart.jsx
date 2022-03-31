@@ -14,13 +14,6 @@ function Cart() {
     const [inputPhone, setInputPhone] = useState('')
     const [inputEmail, setInputEmail] = useState('')
 
-    //Se utiliza el setTimeOut para no renderizar dos componentes al tiempo
-    setTimeout(() => {
-        totalPriceFx() 
-    }, 10);
-
-
-
     const buyerVals = async() => {
 
         let today = new Date();
@@ -119,7 +112,7 @@ function Cart() {
 
                             <ModalData show={ modalDataShow } onHide={() => checkoutData() }/>
 
-                            <ModalFin show={ modalShow } onHide={() => checkout() } code = {uniqueCode} />
+                            <ModalFin show={ modalShow } onHide={() => checkout() } code = { uniqueCode } name = { inputName } />
                                 
                             </div>
                         </div>

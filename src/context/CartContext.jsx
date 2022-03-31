@@ -1,4 +1,4 @@
-import { createContext, memo, useContext, useState } from "react";
+import { createContext, memo, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext([])
 
@@ -13,8 +13,12 @@ const CartContextProvider = memo(
         const [totalPrice, setTotalPrice] = useState(0)
         const [cartShow, setCartShow] = useState(false)
 
-
         let cartMapId = cartList.map(res => res.id)
+
+        useEffect(()=>{
+            totalProducts()
+            totalPriceFx() 
+        },[cartList])
 
         const addCart = (prod) => {
 
@@ -32,7 +36,6 @@ const CartContextProvider = memo(
                 cartList[position].amount = cartList[position].amount + prod.amount
             }
 
-            totalProducts()
         }
 
         const emptyCart = () => {
