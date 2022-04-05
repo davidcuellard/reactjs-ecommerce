@@ -18,7 +18,7 @@ const CartContextProvider = memo(
         useEffect(()=>{
             totalProducts()
             totalPriceFx() 
-        },[cartList])
+        },)
 
         const addCart = (prod) => {
 
@@ -36,13 +36,19 @@ const CartContextProvider = memo(
                 cartList[position].amount = cartList[position].amount + prod.amount
             }
 
+            totalProducts()
+            totalPriceFx() 
+
         }
 
         const emptyCart = () => {
             setCartList( [] )
             setCartLength(true)
             setCartShow(false)
+
             totalProducts()
+            totalPriceFx() 
+
         } 
 
 
@@ -54,7 +60,9 @@ const CartContextProvider = memo(
                 setCartLength(true)
                 setCartShow(false)
             }
+
             totalProducts()
+            totalPriceFx() 
             
         }
 
@@ -95,7 +103,6 @@ const CartContextProvider = memo(
             </div>
             )
     }
-, (prevProps,nextProps) => prevProps.cartList.length === nextProps.cartList.length
-)
+, (prevProps,nextProps) => prevProps.cartList === nextProps.cartList )
 
 export default CartContextProvider

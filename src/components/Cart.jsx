@@ -4,11 +4,13 @@ import { useCartContext } from '../context/CartContext'
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from 'firebase/firestore'
 import ModalFin from './Modals/ModalFin'
 import ModalData from './Modals/ModalData'
+import ModalEmail from './Modals/ModalEmail'
 
 function Cart() {
     const { cartList, emptyCart, removeItem, cartLength, totalPrice, totalPriceFx } = useCartContext() 
     const [modalShow, setModalShow] = useState(false);
     const [modalDataShow, setModalDataShow] = useState(false);
+    const [modalEmailShow, setModalEmailShow] = useState(false);
     const [uniqueCode, setUniqueCode] = useState('');
     const [inputName, setInputName] = useState('')
     const [inputPhone, setInputPhone] = useState('')
@@ -64,11 +66,26 @@ function Cart() {
         setModalDataShow(false)
     }
 
+    const checkoutEmail = () => {
+        setModalEmailShow(false)
+    }
+
+
+    let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+
+    const testEmail = () => {
+        console.log(regex.test(inputEmail))
+        return regex.test(inputEmail)
+    }
+
     const formFull = () => {
-        if(inputName && inputPhone){
-            buyerVals()
+        if(inputName && inputPhone && inputEmail){
+            if(testEmail()){
+                buyerVals()
+            }else{
+                setModalEmailShow(true)
+            }
         }else{
-            
             setModalDataShow(true)
         }
     }
@@ -111,6 +128,7 @@ function Cart() {
                             <button onClick={ emptyCart }>Vaciar carrito</button>
 
                             <ModalData show={ modalDataShow } onHide={() => checkoutData() }/>
+                            <ModalEmail show={ modalEmailShow } onHide={() => checkoutEmail() }/>
 
                             <ModalFin show={ modalShow } onHide={() => checkout() } code = { uniqueCode } name = { inputName } />
                                 
