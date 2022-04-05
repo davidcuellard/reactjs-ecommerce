@@ -1,5 +1,7 @@
 # Proyecto React JS de Ecommerce
-Proyecto tipo Ecommerce creado en ReactJS. 
+Proyecto tipo Ecommerce creado en ReactJS.
+
+Funcionalidades: Elegir uno o varios productos y comprarlos.
 
 Web: https://reactjs-ecommerce-dc.netlify.app
 
