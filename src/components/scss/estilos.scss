@@ -109,6 +109,98 @@ body{
     }
 }
 
+// Navbar mobil
+@media only screen and (max-width: 559px) {   
+    .Nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0px;
+        .logo{
+            height: 200px;
+            width: 200px;
+            margin-bottom: -50px;
+            margin-top: -50px;
+        }
+        ul{
+            font-size: 10px;
+            margin: auto;
+            margin-bottom: 10px;
+            height: 30px;
+        }
+        .dropdown .dropbtn{
+            font-size: 10px;
+            padding: 8px 20px;
+        }
+
+        li a{
+            padding: 8px 25px;
+        }
+        
+        .cartDiv{
+            h3{
+                position: fixed;
+                top: 5px;
+                right: 10px;
+                font-size: 18px;
+            }
+            .cartLi{
+                position: fixed;
+                top: 15px;
+                right: 15px;
+                height: 50px;
+            }    
+        }
+    }
+}
+
+// Navbar tablet
+@media only screen and (min-width: 559px) and (max-width: 965px){
+    .Nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0px;
+        .logo{
+            height: 300px;
+            width: 300px;
+            margin-bottom: -80px;
+            margin-top: -80px;
+        }
+        ul{
+            font-size: 20px;
+            margin: auto;
+            margin-bottom: 10px;
+            height: 50px;
+        }
+        .dropdown .dropbtn{
+            font-size: 20px;
+            padding: 8px 20px;
+        }
+
+        li a{
+            padding: 8px 25px;
+        }
+        
+        .cartDiv{
+            h3{
+                position: fixed;
+                top: 15px;
+                right: 20px;
+                font-size: 18px;
+            }
+            .cartLi{
+                position: fixed;
+                top: 25px;
+                right: 25px;
+                height: 80px;
+            }    
+        }
+    }
+}
+
 //item container
 .itemContainer{
     background-color: white;
@@ -138,6 +230,36 @@ body{
     }
 }
 
+// Item container mobil
+@media only screen and (max-width: 559px) {   
+    .itemContainer{
+        margin-left: 10px;
+        margin-right: 10px;
+        h2{
+            font-size: 20px;
+            margin-bottom: 20px;
+        }    
+        button{
+            font-size: 10px;
+        }
+    }
+}
+
+// Item container tablet
+@media only screen and (min-width: 559px) and (max-width: 965px){
+    .itemContainer{
+        margin-left: 10px;
+        margin-right: 10px;
+        h2{
+            font-size: 30px;
+            margin-bottom: 20px;
+        }    
+        button{
+            font-size: 14px;
+        }
+    }
+}
+
 .itemList{
     display: flex;
     flex-wrap: wrap;
@@ -152,6 +274,41 @@ body{
             width: 200px;
             margin: 10px;
 
+        }
+    }
+}
+
+// Item list mobil
+@media only screen and (max-width: 559px) {   
+    .itemList{        
+        .item{
+            margin: 5px;
+            padding: 10px;
+            .itemImg{
+                width: 100px;
+                margin: 10px;    
+            }
+            label{
+                width: 120px;
+            }
+        }
+    }
+}
+
+// Item list tablet
+@media only screen and (min-width: 559px) and (max-width: 965px){
+    .itemList{       
+        .item{
+            margin: 5px;
+            padding: 10px;
+            justify-content: space-around;
+            .itemImg{
+                width: 120px;
+                margin: 10px;    
+            }
+            label{
+                width: 120px;
+            }
         }
     }
 }
@@ -175,8 +332,53 @@ body{
 
     label{
         padding-bottom: 10px;
-    }
+    }   
+}
+
+// Item detail mobil
+@media only screen and (max-width: 559px) {   
+    .itemDetail{
+        padding-left: 2px;
+        padding-right: 0px;
+        
+        .itemImg{
+            margin: 0px 30px 10px 0px;
+            width: 120px;
+            height: 150px;
+        }
     
+        .info{
+            font-size: 10px;
+            width: 150px;
+            h3{
+                font-size: 18px;                
+            }
+
+        }
+    }
+}
+
+// Item detail tablet
+@media only screen and (min-width: 559px) and (max-width: 965px){
+    .itemDetail{
+        padding-left: 40px;
+        padding-right: 40px;
+        
+        .itemImg{
+            margin: 0px 40px 10px 10px;
+            width: 220px;
+            height: 280px;
+        }
+    
+        .info{
+            font-size: 18px;
+            width: 350px;
+            h3{
+                font-size: 18px;                
+            }
+
+        }
+    }
 }
 
 //card container
@@ -222,6 +424,74 @@ body{
         }
     }
     
+}
+
+// Card container mobil
+@media only screen and (max-width: 559px) {   
+    .cartContainer{
+        .cartLeft{
+            .cartCard{
+                padding-left: 0px;
+                padding-right: 0px;
+            
+                .itemImgCart{
+                    margin: 0px 5px 40px 0px;
+                    height: 100px;
+                    width: 100px;
+                }
+            
+                .details{
+                    font-size: 10px;
+                    width: 70px;
+                    text-align: left;
+                }
+            }
+        }
+
+        .cartRight{
+            form label{
+                font-size: 12px;
+            }
+            h3{
+                font-size: 14px;
+                margin-top: 10px;
+            }
+        }
+    }    
+}
+
+// card container tablet
+@media only screen and (min-width: 559px) and (max-width: 965px){
+    .cartContainer{
+        .cartLeft{
+            .cartCard{
+                padding-left: 40px;
+                padding-right: 40px;
+            
+                .itemImgCart{
+                    margin: 0px 20px 40px 0px;
+                    height: 150px;
+                    width: 150px;
+                }
+            
+                .details{
+                    font-size: 15px;
+                    width: 120px;
+                    text-align: left;
+                }
+            }
+        }
+
+        .cartRight{
+            form label{
+                font-size: 15px;
+            }
+            h3{
+                font-size: 18px;
+                margin-top: 10px;
+            }
+        }
+    }
 }
 
 
