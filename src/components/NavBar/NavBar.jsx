@@ -1,5 +1,5 @@
 import React from 'react'
-import CartWidget from '../NavBar/CartWidget'
+import CartWidget from './CartWidget'
 import logoLand from '../../media/logoLand.png'
 import { Link } from 'react-router-dom'
 
