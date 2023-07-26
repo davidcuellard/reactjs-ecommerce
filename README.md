@@ -41,3 +41,6 @@ Install bootstrap 5.1.3 to some styles features
 ### `npm install firebase`
 
 Install firebase to manage products
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
